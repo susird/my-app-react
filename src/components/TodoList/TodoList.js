@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export function TodoList(props) {
-  const itemsList = props.items;
-  const [items, setItems] = useState(itemsList);
+  const itemsList = props.itemsList;
+  const setItemsList = props.setItemsList;
+
   const checkHandler = (itemId) => {
-    const newItemsList = items.map(element => {
+    const newItemsList = itemsList.map(element => {
       if (element.id === itemId) {
         element.isChecked = !element.isChecked
       }
       return element
     });
-    setItems(newItemsList)
+    setItemsList(newItemsList)
   }
+
   return ( 
     <ul className="todos-container">
-      {items.map(item => {
+      {itemsList.map(item => {
         return (
           <li key={item.description} className="todo-item">
             <input
               onChange={(event) => checkHandler(item.id)}
               type="checkbox"
               id={`item-${item.id}`}
-              checked={items.isChecked}
+              checked={item.isChecked}
             />
-            <label htmlFor={`item-${item.id}`}>{item.description}</label>
+            <label htmlFor={`item-${item.id}`} style={{'text-decoration': item.isChecked ? 'line-through' : 'none'}}>
+            {item.description}
+            </label>
           </li>
         )
       })}

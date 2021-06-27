@@ -1,15 +1,19 @@
-import { div } from 'prelude-ls';
 import React from 'react';
 
-export function Filters () {
+export function Filters (props) {
+  const setFilter = props.setFilter;
+
   const filterAllHandler = () => {
     console.log('Filtering All');
+    setFilter('ALL');
   }
   const filterActiveHandler = () => {
     console.log('Filtering Active');
+    setFilter('ACTIVE');
   }
   const filterCompletedHandler = () => {
     console.log('Filtering Completed');
+    setFilter('COMPLETED');
   }
   return (
     <div className="filters">
