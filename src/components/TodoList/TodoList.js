@@ -18,14 +18,14 @@ export function TodoList(props) {
     <ul className="todos-container">
       {itemsList.map(item => {
         return (
-          <li key={item.description} className="todo-item">
+          <li key={item.id} className="todo-item">
             <input
               onChange={(event) => checkHandler(item.id)}
               type="checkbox"
               id={`item-${item.id}`}
               checked={item.isChecked}
             />
-            <label htmlFor={`item-${item.id}`} style={{'text-decoration': item.isChecked ? 'line-through' : 'none'}}>
+            <label htmlFor={`item-${item.id}`} className={item.isChecked ? 'text-completed' : 'none'}>
             {item.description}
             </label>
           </li>

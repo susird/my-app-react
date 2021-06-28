@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Filters } from '../Filters';
 import { TodoList } from '../TodoList';
+import { Input } from '../Input';
 
 const initialItemsList = [
   {
@@ -28,6 +29,14 @@ export function Main() {
 
   const setItemList = (items) => setState({ ...state, itemsList: items});
   const setFilter = (filter) => setState({ ...state, activeFilter: filter });
+  const setNewItem = (item) => setState({ 
+    ...state, 
+    itemsList: [...state.itemsList, {
+      description: item,
+      id: state.itemsList.length + 1,
+      isChecked: false,
+    }]
+  });
 
   let itemsList = [];
 
@@ -44,6 +53,7 @@ export function Main() {
   return (
     <main className="container">
       <Filters setFilter={setFilter} />
+      <Input setNewItem={setNewItem} />
       <TodoList itemsList={itemsList} setItemsList={setItemList} />
     </main>
   )
