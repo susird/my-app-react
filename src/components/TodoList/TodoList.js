@@ -1,7 +1,9 @@
 import React from 'react';
+import {useParams} from 'react-router-dom'
 
 export function TodoList(props) {
-  const itemsList = props.itemsList;
+  let { id } = useParams();
+  let itemsList = [...props.itemsList];
   const setItemsList = props.setItemsList;
 
   const checkHandler = (itemId) => {
@@ -12,6 +14,16 @@ export function TodoList(props) {
       return element
     });
     setItemsList(newItemsList)
+  }
+  
+  if (id === 'active') {
+    itemsList = props.itemsList.filter(item => !item.isChecked);
+  }
+  if (id === 'completed') {
+    itemsList = props.itemsList.filter(item => item.isChecked);
+  }
+  if (id === 'all') {
+    itemsList = props.itemsList;
   }
 
   return ( 

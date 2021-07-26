@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Filters } from '../Filters';
 import { TodoList } from '../TodoList';
 import { Input } from '../Input';
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 
 const initialItemsList = [
   {
@@ -23,12 +27,10 @@ const initialItemsList = [
 
 export function Main() {
   const [state, setState] = useState({
-    activeFilter: 'ALL',
     itemsList: initialItemsList
   });
 
   const setItemList = (items) => setState({ ...state, itemsList: items});
-  const setFilter = (filter) => setState({ ...state, activeFilter: filter });
   const setNewItem = (item) => setState({ 
     ...state, 
     itemsList: [...state.itemsList, {
@@ -36,25 +38,20 @@ export function Main() {
       id: state.itemsList.length + 1,
       isChecked: false,
     }]
-  });
-
-  let itemsList = [];
-
-  if (state.activeFilter === 'ACTIVE') {
-    itemsList = state.itemsList.filter(item => !item.isChecked);
-  }
-  if (state.activeFilter === 'COMPLETED') {
-    itemsList = state.itemsList.filter(item => item.isChecked);
-  }
-  if (state.activeFilter === 'ALL') {
-    itemsList = state.itemsList;
-  }
+  });  
 
   return (
     <main className="container">
-      <Filters setFilter={setFilter} />
+      <Filters />
       <Input setNewItem={setNewItem} />
-      <TodoList itemsList={itemsList} setItemsList={setItemList} />
+      <Switch>
+        <Route exact path="/">
+          <TodoList itemsList={state.itemsList} setItemsList={setItemList} />
+        </Route>
+        <Route path="/:id" children={
+          <TodoList itemsList={state.itemsList} setItemsList={setItemList} />
+        }/>
+      </Switch>
     </main>
   )
 }

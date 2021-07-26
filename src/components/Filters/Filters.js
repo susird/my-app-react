@@ -1,25 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export function Filters (props) {
-  const setFilter = props.setFilter;
-
-  const filterAllHandler = () => {
-    console.log('Filtering All');
-    setFilter('ALL');
-  }
-  const filterActiveHandler = () => {
-    console.log('Filtering Active');
-    setFilter('ACTIVE');
-  }
-  const filterCompletedHandler = () => {
-    console.log('Filtering Completed');
-    setFilter('COMPLETED');
-  }
+export function Filters () {
   return (
     <div className="filters">
-      <button onClick={filterAllHandler} className="filter-all">All</button>
-      <button onClick={filterActiveHandler} className="filter-active">Active</button>
-      <button onClick={filterCompletedHandler} className="filter-completed">Completed</button>
+      <Link to="/all" className="filter-all">All</Link>
+      <Link to="/active" className="filter-active">Active</Link>
+      <Link to="/completed" className="filter-completed">Completed</Link>
     </div>
   )
 }
