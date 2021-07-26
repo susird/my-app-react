@@ -1,29 +1,27 @@
 import React from 'react';
-import {useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { actionCreators } from '../../redux/list/actions';
+import { useDispatch } from "react-redux";
 
-export function TodoList(props) {
+export function TodoList() {
   let { id } = useParams();
-  let itemsList = [...props.itemsList];
-  const setItemsList = props.setItemsList;
+  let itemsList = [];
+  const todos = useSelector((state) => state.list.itemList);
+  const dispatch = useDispatch();
 
   const checkHandler = (itemId) => {
-    const newItemsList = itemsList.map(element => {
-      if (element.id === itemId) {
-        element.isChecked = !element.isChecked
-      }
-      return element
-    });
-    setItemsList(newItemsList)
+    dispatch(actionCreators.setCheck(itemId))
   }
   
   if (id === 'active') {
-    itemsList = props.itemsList.filter(item => !item.isChecked);
+    itemsList = todos.filter(item => !item.isChecked);
   }
   if (id === 'completed') {
-    itemsList = props.itemsList.filter(item => item.isChecked);
+    itemsList = todos.filter(item => item.isChecked);
   }
   if (id === 'all') {
-    itemsList = props.itemsList;
+    itemsList = todos;
   }
 
   return ( 

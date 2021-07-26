@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { actionCreators } from '../../redux/list/actions';
 
-export function Input (props) {
-  const [value, setValue] = useState('')
-  const setNewItem = props.setNewItem
+export function Input () {
+  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      setNewItem(value)
+      dispatch(actionCreators.addTodo(value))
       setValue('')
     }
   } 
