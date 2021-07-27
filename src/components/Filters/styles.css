@@ -1,14 +1,14 @@
 .filters {
   display: flex;
   justify-content: center;
-  width: 100%;  
   padding: 40px;
+  width: 100%;  
 }
 
 .filter-all, .filter-active, .filter-completed {
-  padding-right: 25px;
-  font-family: 'Pangolin', cursive;
-  text-decoration: none;
   color: black;
+  font-family: 'Pangolin', cursive;
   font-size: 30px;
+  padding-right: 25px;
+  text-decoration: none;
 }
