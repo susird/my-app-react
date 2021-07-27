@@ -1,18 +1,7 @@
 import { actions } from './actions';
 
 const initialState = {
-  itemList: [
-    {
-      description: 'item 1',
-      id: 1,
-      isChecked: false,
-    },
-    {
-      description: 'item 2',
-      id: 2,
-      isChecked: false,
-    }
-  ]
+  itemList: []
 }
 
 const todoReducer = (state = initialState, action) => {

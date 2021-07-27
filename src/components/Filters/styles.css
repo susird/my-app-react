@@ -1,0 +1,14 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  width: 100%;  
+  padding: 30px;
+}
+
+.filter-all, .filter-active, .filter-completed {
+  padding-right: 15px;
+  font-family: 'Pangolin', cursive;
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+}

@@ -1,0 +1,11 @@
+.todo-item {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 25px;
+  list-style-type: none;
+  padding: 20px;
+  letter-spacing: 1px;
+}
+
+.checkbox {
+  padding-right: 10px;
+}

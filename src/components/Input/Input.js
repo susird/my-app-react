@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { actionCreators } from '../../redux/list/actions';
+import './styles.css';
 
 export function Input () {
   const [value, setValue] = useState('');
@@ -15,6 +16,7 @@ export function Input () {
 
   return (
     <input 
+      id="input"
       type="text" 
       placeholder="What need to be done"
       onKeyDown={handleKeyDown}  

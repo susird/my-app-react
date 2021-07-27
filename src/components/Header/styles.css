@@ -1,0 +1,10 @@
+.app-header {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.title-todo{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 100px;
+  text-shadow: 1px 1px 8px black, 0 0 1em #8a8484, 0 0 0.2em #ececec;
+}

@@ -1,0 +1,12 @@
+#input {
+  background-color: #e4e4e49c;
+  border: solid #7f14a75e;
+  font-family: 'Pangolin', cursive;
+  border-radius: 4px;
+  color: rgb(0, 0, 0);
+  line-height: 2;
+  margin: 5px 0;
+  outline-color: rgb(136 145 212 / 93%);
+  padding: 0 5px;
+  width: 50%;
+}

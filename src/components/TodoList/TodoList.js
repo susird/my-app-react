@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { actionCreators } from '../../redux/list/actions';
 import { useDispatch } from "react-redux";
+import './styles.css';
 
 export function TodoList() {
   let { id } = useParams();
@@ -31,6 +32,7 @@ export function TodoList() {
           <li key={item.id} className="todo-item">
             <input
               onChange={(event) => checkHandler(item.id)}
+              className="checkbox"
               type="checkbox"
               id={`item-${item.id}`}
               checked={item.isChecked}

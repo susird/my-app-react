@@ -1,0 +1,19 @@
+.container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-link {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 24px;
+  color: rgba(51, 24, 82, 0.808);
+  text-shadow: 1px 1px 8px black, 0 0 1em #705786, 0 0 0.2em #ececec;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  font-weight: bold;
+  color: rgb(123, 60, 131);
+}
